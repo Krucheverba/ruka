@@ -72,12 +72,15 @@ Telegram бот для записи на мастер-классы галере�
 
 После деплоя получишь URL вида `https://your-project.vercel.app`
 
-Установи webhook для бота:
+Установи webhook для бота через браузер (замени `YOUR_BOT_TOKEN` на свой токен):
+```
+https://api.telegram.org/botYOUR_BOT_TOKEN/setWebhook?url=https://your-project.vercel.app/api/webhook
+```
+
+Или через терминал:
 ```bash
 curl -X POST "https://api.telegram.org/bot<BOT_TOKEN>/setWebhook?url=https://your-project.vercel.app/api/webhook"
 ```
-
-Замени `<BOT_TOKEN>` на свой токен и `your-project.vercel.app` на свой URL.
 
 ## Проверка
 
