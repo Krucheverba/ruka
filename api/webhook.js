@@ -66,7 +66,14 @@ bot.on('text', async (ctx) => {
       state.comment,
       `@${ctx.from.username || ''}`
     ];
-    await addToSheet(data);
+    
+    try {
+      await addToSheet(data);
+    } catch (error) {
+      console.error('Error saving to sheet:', error);
+      // Продолжаем работу даже если не удалось сохранить в таблицу
+    }
+    
     await ctx.reply(
       `Ура! 🎉 ${state.name}, ваша заявка успешно отправлена!\n\n` +
       `Мы получили вашу запись на "${state.masterclass}" и уже готовим для вас краски и вдохновение! 🎨✨\n\n` +
