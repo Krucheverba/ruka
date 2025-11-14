@@ -1,10 +1,6 @@
 {
-  "version": 2,
-  "builds": [
-    { "src": "api/bot.js", "use": "@vercel/node" }
-  ],
-  "routes": [
-    { "src": "/api/webhook", "dest": "/api/bot.js" },
-    { "src": "/.*", "dest": "/api/bot.js" }
+  "rewrites": [
+    { "source": "/api/webhook", "destination": "/api/bot.js" },
+    { "source": "/(.*)", "destination": "/api/bot.js" }
   ]
 }
